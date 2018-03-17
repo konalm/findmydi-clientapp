@@ -5,19 +5,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import jsonp from './googleapis/jsonp'
-import location from './googleapis/location'
-
-var gapiurl = '//maps.googleapis.com/maps/api/js?callback=__googleMapsApiOnLoadCallback';
-
-var load = function (done) {
-    jsonp(gapiurl, '__googleMapsApiOnLoadCallback', done);
-};
-
-load( function () {
-    // location.init([])
-});
-
 
 Vue.config.productionTip = false
 

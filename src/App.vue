@@ -38,6 +38,4 @@ button {
 
 </style>
 
-
-
 <style lang="scss" src="./scss/master.scss" />
