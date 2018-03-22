@@ -14,6 +14,6 @@ switch (window.location.hostname) {
  * return the api url 
  */
 export const getApiUrl = function () {
-    return apiUrl
+  return apiUrl
 }
 
