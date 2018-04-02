@@ -26,6 +26,11 @@
     <p> <i class="fa fa-envelope"></i> {{ instructor.email }} </p> 
     <p> <i class="fa fa-phone"></i> {{ instructor.contact_number }} </p>
   </div>
+
+  <div class="review-container">
+    <p class="review-score"> {{ instructor.review_rating }} </p> 
+    <p class="review-count"> {{ instructor.review_count }} reviews </p>
+  </div>
 </div>
 </template>
 
@@ -48,6 +53,8 @@ export default class InstructorResult extends Vue {
     gender: '',
     email: '',
     hourly_rate: '',
+    review_count: null,
+    review_rating: null,
     contact_number: '',
     offer: ''
   }
@@ -88,16 +95,20 @@ export default class InstructorResult extends Vue {
 
 
 <style lang="scss" scoped>
+@import "../../../scss/variables.scss";
+
 .instructor-result {
   display: flex;
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .05);
-  padding: 20px;
+  // padding: 20px;
   width: 850px;
   margin: 0 auto;
   margin-bottom: 40px;  
+  color: #707070;
 
   .avatar-container {
     margin-right: 30px;
+    padding: 20px;
 
     img {
       width: 170px;
@@ -106,6 +117,8 @@ export default class InstructorResult extends Vue {
   }
 
   .profile-container {
+    padding: 20px;
+
     p.name {
       font-weight: bold;
       font-size: 22px;
@@ -113,7 +126,7 @@ export default class InstructorResult extends Vue {
     }
 
     .fa-check {
-      color: green;
+      color: $primary-color;
     }
 
     .fa-male {
@@ -141,6 +154,24 @@ export default class InstructorResult extends Vue {
   .contact-container {
     flex-grow: 1;
     text-align: right;
+    padding: 20px;
+  }
+
+  .review-container {
+    background: $primary-color;
+    color: white;
+    flex-basis: 101px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+
+    p.review-score {
+      font-size: 30px;
+      font-weight: bold;
+    }
   }
 }
 </style>
