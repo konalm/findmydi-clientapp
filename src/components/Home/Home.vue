@@ -2,45 +2,40 @@
   <div>
     <user-header />
 
-    <div class="container mt-5">
-      <div class="search-page__main-container">
-        <h1>Find My Driving Instructor</h1>
+    <div class="search-page__main-container">
+      <h1>Find My Driving Instructor</h1>
 
-        <form v-on:submit.prevent="searchForInstructors()">
-          <div class="search-container">
-            <input type="text" 
-              class="form-control"
-              placeholder="Enter Your postcode"
-              v-model="postcode"
-            >
+      <form v-on:submit.prevent="searchForInstructors()">
+        <div class="search-container">
+          <input type="text" class="form-control" placeholder="Enter Your postcode"
+            v-model="postcode"
+          >
 
-            <button type="submit" class="base-button">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </button> 
-          </div>
-        </form>
+          <button type="submit" class="base-button rounded">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button> 
+        </div>
+      </form>
 
-        <p class="search-container__lower-text lead">
-          Find qualified driving instructors within your reach 
-        </p>
-      </div>
-
-      <ul class="instructors-found-container mt-5 list-group">
-        <li class="list-group-item"
-          v-for="(instructor, index) in instructorsFound" 
-          :key="instructor.name"
-        >
-          <p>{{ instructor.name }}</p>
-          <p>{{ instructor.email }}</p> 
-          <button class="btn btn-primary mr-2">Contact</button>
-          <button class="btn btn-primary">View Profile</button>
-        </li>
-      </ul>
-
-      <no-drivers-response 
-        v-if="searched && Object(instructorsFound).length === 0" 
-      />
+      <p class="search-container__lower-text lead">
+        Find qualified driving instructors within your reach 
+      </p>
     </div>
+
+    <ul class="instructors-found-container mt-5 list-group">
+      <li class="list-group-item" v-for="(instructor, index) in instructorsFound" 
+        :key="instructor.name"
+      >
+        <p>{{ instructor.name }}</p>
+        <p>{{ instructor.email }}</p> 
+        <button class="btn btn-primary mr-2">Contact</button>
+        <button class="btn btn-primary">View Profile</button>
+      </li>
+    </ul>
+
+    <no-drivers-response 
+      v-if="searched && Object(instructorsFound).length === 0" 
+    />
   </div>
 </template>
 
@@ -53,8 +48,6 @@ import UserHeader from '@/components/patterns/user-header'
 import {http} from '../../http-requests'
 import noDriversResponse from './NoDriversResponse.vue'
 import router from '@/router'
-
-// import location from '../../googleapis/location'
 import store from '@/store'
 
 @Component({
@@ -72,7 +65,6 @@ export default class InstructorSearch extends Vue {
 
   beforeMount() {
     document.body.className = 'white-background' 
-    console.log('HOME')
   }
 
   /**
