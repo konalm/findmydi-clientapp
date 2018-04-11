@@ -1,0 +1,186 @@
+@import "../../../../scss/variables.scss";
+
+/**
+ *
+ */ 
+.instructor-result {
+  display: flex;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .05);
+  max-width: 850px;
+  margin: 0 auto;
+  margin-bottom: 40px;  
+  color: #707070;
+
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
+
+  .avatar-container {
+    margin-right: 30px;
+    padding: 20px;
+
+    @media screen and (max-width: 991px) {
+      margin-right: 10px;
+      padding: 5px;
+    }
+  
+    img {
+      width: 170px;
+      margin-top: 20px;
+
+      @media screen and (max-width: 650px) {
+        width: 80px;
+      }
+    }
+  }
+
+  /**
+   *
+   */
+  .profile-container {
+    padding: 20px;
+
+    @media screen and (max-width: 650px) {
+      padding: 5px;
+    }
+
+    p.name {
+      font-weight: bold;
+      font-size: 22px;
+      color: rgb(120,120,120);
+    }
+
+    .fa-check {
+      color: $primary-color;
+    }
+
+    .fa-male {
+      color: #6255FF;
+    }
+
+    .fa-female {
+      color: #FF559D;
+    }
+
+    .seperator {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .fa-envelope, .fa-phone {
+      opacity: 0.6;
+    }
+
+    span.offer {
+      text-decoration: underline;
+    }
+  }
+
+  /**
+   *
+   */ 
+  .contact-container {
+    flex-grow: 1;
+    text-align: right;
+    padding: 20px;
+
+    @media screen and (max-width: 650px) {
+      padding: 5px;
+    }
+
+    .underline {
+      color: blue;
+      cursor: pointer;
+    }
+  }
+
+  .contact-container.mobile {
+    text-align: left;
+  }
+
+  /**
+   *
+   */
+  .review-container {
+    background: $primary-color;
+    color: white;
+    flex-basis: 101px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+
+    @media screen and (max-width: 650px) {
+      font-size: 12px;
+      flex-basis: 70px;
+    }
+
+    p.review-score {
+      font-size: 30px;
+      font-weight: bold;
+
+      @media screen and (max-width: 650px) {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+
+/**
+ * mobile 
+ */ 
+.instructor-result.mobile {
+  display: none;
+
+  .bio {
+    flex-grow: 1;
+
+    .bio__upper {
+      display: flex;
+      padding-top: 10px;
+
+      p.name {
+        font-size: 18px;
+      }
+
+      .avatar-container {
+        padding: 0;
+        margin-right: 7px;
+        margin-left: 7px;
+      }
+
+      img {
+        width: 100px;
+        height: auto;
+        margin: 0;
+      }
+
+      .profile-container {
+        line-height: 12px;
+      }
+    }
+
+    .bio__lower {
+      padding-left: 10px;
+      margin-top: 10px;
+      line-height: 12px;
+
+      .underline {
+        color: blue;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .review-container {
+    flex-basis: 65px;
+  }
+
+
+  @media screen and (max-width: 650px) {
+    display: flex;
+  }
+}
