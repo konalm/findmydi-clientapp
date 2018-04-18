@@ -7,7 +7,6 @@ import Search from '@/components/Search'
 import WriteReview from '@/components/WriteReview'
 import WriteReviewRequest from '@/components/WriteReviewRequest'
 
-
 Vue.use(Router)
 
 export default new Router({
@@ -32,5 +31,7 @@ export default new Router({
       name: 'WriteReviewRequest',
       component: WriteReviewRequest
     },
-  ]
+  ],
+
+  mode: 'history',
 })
