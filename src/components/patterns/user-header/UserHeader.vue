@@ -7,6 +7,9 @@
       </router-link>
 
       <ul class="logged-out-header__nav">
+        <a v-bind:href=instructorAppUrl>
+          <li> Join As Driving Instructor </li>
+        </a>
         <router-link v-for="item in menuItems" :key="item.name" :to="{path: item.link}"
           v-bind:class="{'special': item.special}"
           tag="li"
@@ -36,17 +39,21 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import {getInstructorAppUrl} from '@/globals'
 
 @Component({})
 export default class LoggedOutHeader extends Vue {
   menuItems = [
-    { name: 'Join as Driving Instructor', link: '/'},
     { name: 'Services', special: false, link: '/services' },
     { name: 'About', special: false, link: '/about' },
     { name: 'Get In Touch', special: true, link: '/contact' }
   ]
 
   mobileMenuOpen: boolean = false
+
+  get instructorAppUrl() {
+    return getInstructorAppUrl()
+  }
 
   /** 
    * 
