@@ -106,5 +106,5 @@ export default class InstructorSearchResponse extends Vue {
 
 
 
-<style lang="scss" scoped src="./Search.scss" />
+<style lang="scss" scoped src="./search.scss" />
 

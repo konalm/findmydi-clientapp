@@ -2,12 +2,17 @@
 <div>
   <div class="header inst-app logged-out">
     <div class="header__inner">
-      <img src="../../../assets/findmydi-dark.png" class="header__logo">
+      <router-link :to="{path: '/'}">
+        <img src="../../../assets/findmydi-dark.png" class="header__logo">
+      </router-link>
 
       <ul class="logged-out-header__nav">
-        <li>Services</li>
-        <li>About</li>
-        <li class="special">Get In Touch</li>
+        <router-link v-for="item in menuItems" :key="item.name" :to="{path: item.link}"
+          v-bind:class="{'special': item.special}"
+          tag="li"
+        >
+          {{ item.name }}
+        </router-link>
       </ul>
 
       <!-- mobile -->
@@ -17,9 +22,11 @@
   </div>
 
   <ul class="logged-out-header__mobile-nav" id="mobileMenu">
-    <li v-for="item in menuItems" :key="item.name">
+    <router-link v-for="item in menuItems" :key="item.name" :to="{path: item.link}" 
+     tag="li"
+    >
       {{ item.name }}
-    </li>
+    </router-link>
   </ul>
 </div>
 </template>
@@ -33,13 +40,17 @@ import Component from 'vue-class-component'
 @Component({})
 export default class LoggedOutHeader extends Vue {
   menuItems = [
-    { name: 'Services', special: false },
-    { name: 'About', special: false },
-    { name: 'Get In Touch', special: true }
+    { name: 'Join as Driving Instructor', link: '/'},
+    { name: 'Services', special: false, link: '/services' },
+    { name: 'About', special: false, link: '/about' },
+    { name: 'Get In Touch', special: true, link: '/contact' }
   ]
 
   mobileMenuOpen: boolean = false
 
+  /** 
+   * 
+   */
   toggleMobileMenu() {
     if (!this.mobileMenuOpen) {
       $("#mobileMenu").slideDown("slow")
@@ -51,6 +62,7 @@ export default class LoggedOutHeader extends Vue {
   }
 }
 </script>
+
 
 
 <style scoped lang="scss" src="./user-header.scss" />

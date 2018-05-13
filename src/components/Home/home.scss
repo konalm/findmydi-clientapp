@@ -4,11 +4,31 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 100px);
   align-items: center;
   justify-content: center;
+  background-image: url("../../assets/shutterstock_132861719.jpg");
+  background-size: cover;
+  position: relative;
+
+  .back-filter {
+    background: #2CA062;
+    opacity: 0.85;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+  }
 
   h1 {
+    z-index: 1;
+    color: white;
+    font-weight: 500;
+
+    span.beta {
+      color: #0A2F4E;
+      font-size: 16px;
+    }
+
     @media screen and (max-width: 650px) {
       font-size: 30px;
     }
@@ -16,6 +36,8 @@
     @media screen and (max-width: 550px) {
       font-size: 25px;
     }
+
+    margin-top: 80px;
   }
 
   form {
@@ -29,10 +51,15 @@
     margin-top: 50px;
     height: 63px;
     width: 100%;
+    z-index: 1;
 
     input {
-      width: 500px;
+      width: 300px;
       height: 63px;
+      z-index: 1;
+      font-size: 20px;
+      box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+      padding-left: 20px;
 
       @media screen and (max-width: 650px) {
         width: 70%;
@@ -45,6 +72,9 @@
       height: 63px;
       margin-left: 20px;
       font-size: 25px;
+      z-index: 1;
+      background: #0A2F4E;
+      box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
 
       @media screen and (max-width: 650px) {
         height: 50px;
@@ -56,11 +86,15 @@
 
   p.search-container__lower-text {
     margin-top: 40px;
-    font-size: 16px;
-    color: rgb(150,150,150);
+    margin-bottom: 80px;
+    font-size: 22px;
+    color: white;
+    z-index: 1;
+    max-width: 500px;
 
     @media screen and (max-width: 650px) {
       font-size: 14px;
+      max-width: 300px;
     }
   }
 }

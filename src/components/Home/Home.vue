@@ -1,42 +1,34 @@
 <template>
-  <div>
-    <user-header />
+<div>
+  <user-header />
 
-    <div class="search-page__main-container">
-      <h1>Find My Driving Instructor</h1>
+  <div class="search-page__main-container">
+    <div class="back-filter"></div> 
 
-      <form v-on:submit.prevent="searchForInstructors()">
-        <div class="search-container">
-          <input type="text" class="form-control" placeholder="Enter Your postcode"
-            v-model="postcode"
-          >
+    <h1>Find My Driving Instructor <span class="beta">BETA</span></h1>
 
-          <button type="submit" class="base-button rounded">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button> 
-        </div>
-      </form>
+    <form v-on:submit.prevent="searchForInstructors()">
+      <div class="search-container">
+        <input type="text" class="form-control" placeholder="Your Postcode"
+          v-model="postcode"
+        >
 
-      <p class="search-container__lower-text lead">
-        Find qualified driving instructors within your reach 
-      </p>
-    </div>
+        <button type="submit" class="base-button rounded">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button> 
+      </div>
+    </form>
 
-    <ul class="instructors-found-container mt-5 list-group">
-      <li class="list-group-item" v-for="(instructor, index) in instructorsFound" 
-        :key="instructor.name"
-      >
-        <p>{{ instructor.name }}</p>
-        <p>{{ instructor.email }}</p> 
-        <button class="btn btn-primary mr-2">Contact</button>
-        <button class="btn btn-primary">View Profile</button>
-      </li>
-    </ul>
-
-    <no-drivers-response 
-      v-if="searched && Object(instructorsFound).length === 0" 
-    />
+    <p class="search-container__lower-text lead">
+      Find driving lessons from approved driving instructors near you
+    </p>
   </div>
+
+  <features />
+  <why-use />
+  <join-button />
+  <user-footer />
+</div>
 </template>
 
 
@@ -45,15 +37,19 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import UserHeader from '@/components/patterns/user-header'
+import UserFooter from '@/components/patterns/Footer.vue'
 import {http} from '../../http-requests'
 import noDriversResponse from './NoDriversResponse.vue'
 import router from '@/router'
 import store from '@/store'
 
+import Features from './children/Features.vue'
+import WhyUse from './children/WhyUse.vue'
+import JoinButton from './children/JoinButton.vue'
+
 @Component({
   components: {
-    UserHeader,
-    noDriversResponse
+    UserHeader, noDriversResponse, Features, WhyUse, JoinButton, UserFooter
   }
 })
 export default class InstructorSearch extends Vue {
